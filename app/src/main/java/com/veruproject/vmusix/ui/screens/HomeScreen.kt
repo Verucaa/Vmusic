@@ -145,13 +145,13 @@ private fun ShelfRow(shelf: Shelf, vm: AppViewModel, navController: NavHostContr
             }
         }
         items(shelf.albums, key = { it.id }) { album ->
-            AlbumCard(album) { navController.navigate(Routes.detail("album", album.id)) }
+            AlbumCard(album, onClick = { navController.navigate(Routes.detail("album", album.id)) })
         }
         items(shelf.artists, key = { it.id }) { artist ->
-            ArtistCard(artist) { navController.navigate(Routes.detail("artist", artist.id)) }
+            ArtistCard(artist, onClick = { navController.navigate(Routes.detail("artist", artist.id)) })
         }
         items(shelf.playlists, key = { it.id }) { playlist ->
-            PlaylistCard(playlist) { navController.navigate(Routes.detail("online_playlist", playlist.id)) }
+            PlaylistCard(playlist, onClick = { navController.navigate(Routes.detail("online_playlist", playlist.id)) })
         }
     }
 }
