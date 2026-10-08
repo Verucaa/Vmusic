@@ -97,7 +97,7 @@ class MusicRepository @Inject constructor(
     // ----------------------------------------------------------- playlists
 
     fun observePlaylists(): Flow<List<UserPlaylist>> = playlistDao.observePlaylistsWithMeta().map { rows ->
-        rows.map { UserPlaylist(it.id, it.name, it.cnt, it.thumb) }
+        rows.map { UserPlaylist(it.id, it.name, it.cnt, it.thumb ?: "") }
     }
 
     fun observePlaylistSongs(playlistId: Long): Flow<List<Song>> =
