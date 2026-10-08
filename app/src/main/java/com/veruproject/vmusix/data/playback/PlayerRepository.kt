@@ -25,12 +25,17 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
  * Jembatan UI ↔ PlaybackService (MediaController).
  * Menyediakan state pemutar + antrean, mencatat riwayat, dan scrobble Last.fm.
+ *
+ * Catatan threading: MediaController (Media3) HANYA boleh disentuh dari main thread.
+ * Semua coroutine di sini dijalankan di Dispatchers.Main.immediate; operasi berat
+ * (network/DB) dibungkus dengan withContext(Dispatchers.IO) di masing-masing fungsi.
  */
 @Singleton
 class PlayerRepository @Inject constructor(
@@ -40,7 +45,7 @@ class PlayerRepository @Inject constructor(
     private val lastFm: LastFmApi,
     private val settings: SettingsDataStore,
 ) {
-    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
+    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
 
     private var controller: MediaController? = null
     private var controllerFuture: com.google.common.util.concurrent.ListenableFuture<MediaController>? = null
@@ -103,7 +108,7 @@ class PlayerRepository @Inject constructor(
         if (songs.isEmpty()) return
         songs.forEach { songLookup[it.id] = it }
         scope.launch {
-            val items = songs.map { buildItem(it) }
+            val items = withContext(Dispatchers.IO) { songs.map { buildItem(it) } }
             controller?.let { c ->
                 c.setMediaItems(items, startIndex.coerceIn(0, items.lastIndex), 0)
                 c.prepare()
@@ -121,8 +126,9 @@ class PlayerRepository @Inject constructor(
         songLookup[song.id] = song
         scope.launch {
             val c = controller ?: return@launch
+            val item = withContext(Dispatchers.IO) { buildItem(song) }
             val index = c.currentMediaItemIndex + 1
-            c.addMediaItem(index, buildItem(song))
+            c.addMediaItem(index, item)
             _queue.value = queue.value.toMutableList().apply { add(index, song) }
         }
     }
@@ -227,10 +233,12 @@ class PlayerRepository @Inject constructor(
         playStartWall = if (player.isPlaying) System.currentTimeMillis() else 0L
         scrobbleStartSec = System.currentTimeMillis() / 1000
         scope.launch {
-            music.recordPlay(song)
-            val s = settings.settings.first()
-            if (s.scrobbleEnabled && s.lastFmSessionKey.isNotEmpty() && lastFm.isConfigured) {
-                lastFm.updateNowPlaying(song, s.lastFmSessionKey)
+            withContext(Dispatchers.IO) {
+                music.recordPlay(song)
+                val s = settings.settings.first()
+                if (s.scrobbleEnabled && s.lastFmSessionKey.isNotEmpty() && lastFm.isConfigured) {
+                    lastFm.updateNowPlaying(song, s.lastFmSessionKey)
+                }
             }
         }
     }
@@ -241,9 +249,11 @@ class PlayerRepository @Inject constructor(
         // ponytail: scrobble setelah 30 detik (aturan umum Last.fm); tanpa itu dianggap skip.
         if (played >= 30_000) {
             scope.launch {
-                val s = settings.settings.first()
-                if (s.scrobbleEnabled && s.lastFmSessionKey.isNotEmpty() && lastFm.isConfigured) {
-                    lastFm.scrobble(song, s.lastFmSessionKey, scrobbleStartSec)
+                withContext(Dispatchers.IO) {
+                    val s = settings.settings.first()
+                    if (s.scrobbleEnabled && s.lastFmSessionKey.isNotEmpty() && lastFm.isConfigured) {
+                        lastFm.scrobble(song, s.lastFmSessionKey, scrobbleStartSec)
+                    }
                 }
             }
         }
