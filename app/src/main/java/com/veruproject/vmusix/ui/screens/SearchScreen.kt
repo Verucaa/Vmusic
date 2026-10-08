@@ -137,7 +137,7 @@ fun SearchScreen(vm: AppViewModel, navController: NavHostController) {
                         modifier = Modifier.fillMaxSize(),
                     ) {
                         items(r.albums, key = { it.id }) { album ->
-                            AlbumCard(album) { navController.navigate(Routes.detail("album", album.id)) }
+                            AlbumCard(album, onClick = { navController.navigate(Routes.detail("album", album.id)) })
                         }
                     }
                     2 -> if (r.artists.isEmpty()) EmptyView(stringResource(R.string.search_empty), Modifier.fillMaxSize())
@@ -147,7 +147,7 @@ fun SearchScreen(vm: AppViewModel, navController: NavHostController) {
                         modifier = Modifier.fillMaxSize(),
                     ) {
                         items(r.artists, key = { it.id }) { artist ->
-                            ArtistCard(artist) { navController.navigate(Routes.detail("artist", artist.id)) }
+                            ArtistCard(artist, onClick = { navController.navigate(Routes.detail("artist", artist.id)) })
                         }
                     }
                     else -> if (r.playlists.isEmpty()) EmptyView(stringResource(R.string.search_empty), Modifier.fillMaxSize())
@@ -157,7 +157,7 @@ fun SearchScreen(vm: AppViewModel, navController: NavHostController) {
                         modifier = Modifier.fillMaxSize(),
                     ) {
                         items(r.playlists, key = { it.id }) { playlist ->
-                            PlaylistCard(playlist) { navController.navigate(Routes.detail("online_playlist", playlist.id)) }
+                            PlaylistCard(playlist, onClick = { navController.navigate(Routes.detail("online_playlist", playlist.id)) })
                         }
                     }
                 }
