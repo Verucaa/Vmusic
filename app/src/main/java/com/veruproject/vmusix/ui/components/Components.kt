@@ -371,14 +371,14 @@ fun SettingRow(title: String, value: String? = null, onClick: (() -> Unit)? = nu
 
 /** Header layar stack: tombol kembali + judul. */
 @Composable
-fun ScreenHeader(title: String, onBack: () -> Unit, modifier: Modifier = Modifier) {
-    Row(
-        modifier = modifier.fillMaxWidth().padding(horizontal = 4.dp, vertical = 4.dp),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        IconButton(onClick = onBack) {
-            Icon(painterResource(R.drawable.ic_back), contentDescription = stringResource(R.string.back))
-        }
-        Text(title, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold, maxLines = 1, overflow = TextOverflow.Ellipsis)
-    }
-}
+fun ScreenHeader(title: String, modifier: Modifier = Modifier, onBack: () -> Unit) {
+     Row(
+         modifier = modifier.fillMaxWidth().padding(horizontal = 4.dp, vertical = 4.dp),
+         verticalAlignment = Alignment.CenterVertically,
+     ) {
+         IconButton(onClick = onBack) {
+             Icon(painterResource(R.drawable.ic_back), contentDescription = stringResource(R.string.back))
+         }
+         Text(title, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold, maxLines = 1, overflow = TextOverflow.Ellipsis)
+     }
+ }
