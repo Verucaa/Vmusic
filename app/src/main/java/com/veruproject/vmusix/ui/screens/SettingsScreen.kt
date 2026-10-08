@@ -46,6 +46,7 @@ import com.veruproject.vmusix.ui.components.ScreenHeader
 import com.veruproject.vmusix.ui.components.SettingRow
 import com.veruproject.vmusix.ui.nav.Routes
 import kotlinx.coroutines.launch
+import androidx.compose.ui.graphics.toArgb
 
 /** Layar Pengaturan: tampilan, pemutaran, penyimpanan, integrasi Last.fm, tentang. */
 @Composable
@@ -79,7 +80,7 @@ fun SettingsScreen(vm: AppViewModel, navController: NavHostController) {
                 Spacer(Modifier.width(8.dp))
                 Box(
                     Modifier.size(26.dp).clip(CircleShape).background(color)
-                        .clickable { scope.launch { vm.settings.setThemeColor("#%06X".format(0xFFFFFF and androidx.compose.ui.graphics.toArgb(color))) } },
+                        .clickable { scope.launch { vm.settings.setThemeColor("#%06X".format(0xFFFFFF and color.toArgb())) } },
                 )
             }
         }
