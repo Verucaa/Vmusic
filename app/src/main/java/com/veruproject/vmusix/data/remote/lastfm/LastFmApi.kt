@@ -49,7 +49,7 @@ class LastFmApi @Inject constructor(private val http: OkHttpClient) {
                 sessionKey,
                 "artist" to song.artist,
                 "track" to song.title,
-                "album" to song.album.takeIf { it.isNotEmpty() } ?: "",
+                "album" to (song.album.takeIf { it.isNotEmpty() } ?: ""),
                 "duration" to song.duration.toString(),
             ),
         )
