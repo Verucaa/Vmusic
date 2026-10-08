@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Vmusix</string>
+    <string name="tagline">Listen Without Limits</string>
+    <string name="developer_name">VeruProject</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_search">Cari</string>
+    <string name="nav_library">Lainnya</string>
+
+    <!-- Home -->
+    <string name="home_recently_played">Baru Diputar</string>
+    <string name="home_trending">Trending</string>
+    <string name="home_new_releases">Rilis Baru</string>
+    <string name="home_favorite_artists">Artis Favorit</string>
+    <string name="home_banner_play">Putar Sekarang</string>
+    <string name="home_empty">Belum ada konten. Tarik ke bawah untuk memuat ulang.</string>
+
+    <!-- Search -->
+    <string name="search_hint">Cari lagu, artis, album, playlist</string>
+    <string name="search_tab_songs">Lagu</string>
+    <string name="search_tab_albums">Album</string>
+    <string name="search_tab_artists">Artis</string>
+    <string name="search_tab_playlists">Playlist</string>
+    <string name="search_initial">Ketik untuk mulai mencari</string>
+    <string name="search_empty">Hasil tidak ditemukan</string>
+    <string name="search_error">Pencarian gagal. Periksa koneksi internet.</string>
+
+    <!-- Library (Lainnya) -->
+    <string name="library_liked">Disukai</string>
+    <string name="library_liked_desc">Lagu yang kamu sukai</string>
+    <string name="library_downloads">Diunduh</string>
+    <string name="library_downloads_desc">Lagu untuk didengarkan offline</string>
+    <string name="library_playlists">Playlist</string>
+    <string name="library_playlists_desc">Koleksi playlist kamu</string>
+    <string name="library_charts">50 Teratas</string>
+    <string name="library_charts_desc">Lagu paling populer saat ini</string>
+    <string name="library_cache">Cache</string>
+    <string name="library_cache_desc">Kelola penyimpanan sementara</string>
+    <string name="library_settings">Pengaturan</string>
+    <string name="library_settings_desc">Tema, kualitas, lirik, dan lainnya</string>
+
+    <!-- Generic list / detail -->
+    <string name="play_all">Putar Semua</string>
+    <string name="shuffle_all">Acak Semua</string>
+    <string name="songs_count">%1$d lagu</string>
+    <string name="loading">Memuat…</string>
+    <string name="back">Kembali</string>
+    <string name="see_all">Lihat Semua</string>
+    <string name="refresh">Muat Ulang</string>
+    <string name="error_generic">Terjadi kesalahan</string>
+    <string name="empty_list">Belum ada lagu di sini</string>
+    <string name="retry">Coba Lagi</string>
+    <string name="album">Album</string>
+    <string name="artist">Artis</string>
+    <string name="playlist">Playlist</string>
+
+    <!-- Player -->
+    <string name="play">Putar</string>
+    <string name="pause">Jeda</string>
+    <string name="next">Berikutnya</string>
+    <string name="previous">Sebelumnya</string>
+    <string name="shuffle">Acak</string>
+    <string name="repeat">Ulangi</string>
+    <string name="repeat_one">Ulangi satu lagu</string>
+    <string name="queue">Antrean</string>
+    <string name="like">Suka</string>
+    <string name="unlike">Batal suka</string>
+    <string name="download">Unduh</string>
+    <string name="lyrics">Lirik</string>
+    <string name="lyrics_empty">Lirik tidak tersedia</string>
+    <string name="lyrics_unsynced">Lirik tanpa sinkronisasi</string>
+    <string name="player_no_song">Tidak ada lagu diputar</string>
+    <string name="player_error">Gagal memuat lagu. Coba lagi.</string>
+    <string name="queue_empty">Antrean kosong</string>
+
+    <!-- Song menu -->
+    <string name="menu_play_now">Putar sekarang</string>
+    <string name="menu_add_queue">Tambah ke antrean</string>
+    <string name="menu_add_playlist">Tambah ke playlist</string>
+    <string name="menu_download">Unduh lagu</string>
+    <string name="menu_go_album">Buka album</string>
+    <string name="menu_go_artist">Buka artis</string>
+
+    <!-- Playlist dialog -->
+    <string name="playlist_create_title">Playlist baru</string>
+    <string name="playlist_name_hint">Nama playlist</string>
+    <string name="create">Buat</string>
+    <string name="cancel">Batal</string>
+    <string name="delete">Hapus</string>
+    <string name="add_to_playlist">Tambah ke playlist</string>
+    <string name="playlist_empty">Belum ada playlist</string>
+    <string name="playlist_created">Playlist dibuat</string>
+    <string name="playlist_delete_confirm">Hapus playlist ini?</string>
+
+    <!-- Downloads -->
+    <string name="download_state_downloading">Mengunduh</string>
+    <string name="download_state_paused">Dijeda</string>
+    <string name="download_state_failed">Gagal</string>
+    <string name="download_state_done">Selesai</string>
+    <string name="download_pause">Jeda</string>
+    <string name="download_resume">Lanjutkan</string>
+    <string name="download_cancel">Batalkan</string>
+    <string name="download_retry">Coba Lagi</string>
+    <string name="download_location">Disimpan ke Music/Vmusix</string>
+    <string name="downloads_empty">Belum ada lagu yang diunduh</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Pengaturan</string>
+    <string name="settings_appearance">Tampilan</string>
+    <string name="settings_dark_mode">Mode Gelap</string>
+    <string name="settings_theme_color">Warna Tema</string>
+    <string name="settings_playback">Pemutaran</string>
+    <string name="settings_audio_quality">Kualitas Audio</string>
+    <string name="settings_download_quality">Kualitas Unduhan</string>
+    <string name="settings_lyrics_source">Sumber Lirik</string>
+    <string name="settings_storage">Penyimpanan</string>
+    <string name="settings_clear_cache">Hapus Cache</string>
+    <string name="settings_integration">Integrasi</string>
+    <string name="settings_lastfm_scrobble">Scrobbling Last.fm</string>
+    <string name="settings_about">Tentang</string>
+    <string name="quality_auto">Otomatis</string>
+    <string name="quality_low">Rendah</string>
+    <string name="quality_medium">Sedang</string>
+    <string name="quality_high">Tinggi</string>
+    <string name="lyrics_source_auto">Otomatis (urut semua provider)</string>
+    <string name="lyrics_source_youtube">YouTube Music</string>
+    <string name="lyrics_source_lrclib">LRCLIB</string>
+    <string name="lyrics_source_better">Better Lyrics</string>
+    <string name="lyrics_source_kugou">KuGou</string>
+    <string name="lyrics_source_paxsenix">Paxsenix</string>
+    <string name="about_text">Vmusix — Listen Without Limits\nDikembangkan oleh VeruProject\n\nAplikasi pemutar musik berbasis YouTube Music dengan dukungan lirik, playlist, unduhan offline, dan scrobbling.</string>
+    <string name="about_version">Versi %1$s</string>
+    <string name="lastfm_status_off">Belum terhubung</string>
+    <string name="lastfm_connect">Hubungkan Last.fm</string>
+    <string name="lastfm_disconnect">Putuskan</string>
+    <string name="lastfm_opened">Buka persetujuan di browser, lalu ketuk Saya Sudah Setuju</string>
+    <string name="lastfm_approve">Saya Sudah Setuju</string>
+    <string name="lastfm_connected">Terhubung: %1$s</string>
+
+    <!-- Cache -->
+    <string name="cache_title">Cache</string>
+    <string name="cache_total">Total cache</string>
+    <string name="cache_images">Gambar &amp; thumbnail</string>
+    <string name="cache_data">Data aplikasi</string>
+    <string name="cache_clear_all">Hapus Semua Cache</string>
+    <string name="cache_cleared">Cache dibersihkan</string>
+    <string name="cache_auto_clean">Bersihkan otomatis saat aplikasi dibuka</string>
+    <string name="cache_stats_count">%1$d berkas</string>
+
+    <!-- Permission -->
+    <string name="notif_permission_rationale">Izin notifikasi diperlukan untuk menampilkan kontrol pemutar di panel notifikasi.</string>
+</resources>
