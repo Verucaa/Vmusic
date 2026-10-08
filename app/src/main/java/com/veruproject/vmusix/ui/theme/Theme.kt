@@ -24,7 +24,6 @@ private fun darkScheme(accent: Color) = darkColorScheme(
     onSurfaceVariant = Color(0xFFA1A1AA),
     surfaceContainer = BrandConfig.CARD_COLOR,
     surfaceContainerHigh = Color(0xFF1F1F23),
-    cardColor = BrandConfig.CARD_COLOR,
     tertiary = accent,
     outline = Color(0xFF3F3F46),
 )
@@ -41,7 +40,6 @@ private fun lightScheme(accent: Color) = lightColorScheme(
     onSurfaceVariant = Color(0xFF52525B),
     surfaceContainer = Color(0xFFEDEDF0),
     surfaceContainerHigh = Color(0xFFE4E4E7),
-    cardColor = Color.White,
     tertiary = accent,
     outline = Color(0xFFD4D4D8),
 )
